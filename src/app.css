@@ -1,0 +1,153 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		color: inherit;
+		text-decoration: none;
+	}
+}
+
+ul,
+li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-indent: 0;
+	list-style-type: 0;
+}
+
+button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	font-weight: 400;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* TYPOGRAPHY */
+h1 {
+	font-size: 80px;
+	font-family: 'Anton', sans-serif;
+	line-height: 1.1; /* Adjust as needed for spacing */
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 60px;
+	font-family: 'Anton', sans-serif;
+	line-height: 1.2;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: 22px;
+	line-height: 1.3;
+	font-family: 'Anton', sans-serif;
+	font-weight: normal;
+}
+
+h4 {
+	font-family: 'Anton', sans-serif;
+	font-size: 20px;
+	line-height: 1.3;
+	font-weight: normal;
+}
+p,
+a,
+li {
+	font-size: 20px;
+	line-height: 1.4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+}
+
+/* UTILITY CLASSES */
+.m-xs {
+	margin-top: 8px;
+}
+
+.mt-s {
+	margin-top: 16px;
+}
+
+.mt-m {
+	margin-top: 32px;
+}
+
+.mt-l {
+	margin-top: 64px;
+}
+
+.mb-xs {
+	margin-bottom: 8px;
+}
+
+.mb-s {
+	margin-bottom: 16px;
+}
+
+.mb-m {
+	margin-bottom: 32px;
+}
+
+.mb-l {
+	margin-bottom: 64px;
+}
+
+.bold {
+	font-weight: 800;
+}
+
+.semi-bold {
+	font-weight: 500;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.purple {
+	color: #3233a6;
+}
+
+.white {
+	color: white;
+}
+
+.light-grey {
+	color: #aaaaaa;
+}
+
+.page-section {
+	padding: 80px 0;
+	margin-left: 15vw;
+	margin-right: 15vw;
+	max-width: 1400px;
+}
