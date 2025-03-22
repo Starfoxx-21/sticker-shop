@@ -48,7 +48,6 @@
 		{/each}
 	</div>
 	<div class="additional-info mt-m">
-		<Button class="mt-s">Buy Now</Button>
 		<p class="mt-m">Any other questions?</p>
 		<a href="https://github.com/Starfoxx-21">
 			<svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">

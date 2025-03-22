@@ -26,10 +26,10 @@
 	}
 
 	.chevron-icon {
-    flex-shrink: 0;
+		flex-shrink: 0;
 		width: 20px;
 		height: 20px;
-    transition: transform 0.3s linear;
+		transition: transform 0.3s linear;
 	}
 
 	.question-and-answer {

@@ -44,14 +44,14 @@ h1 {
 	font-size: 80px;
 	font-family: 'Anton', sans-serif;
 	line-height: 1.1; /* Adjust as needed for spacing */
-	font-weight: bold;
+	font-weight: 400;
 }
 
 h2 {
 	font-size: 60px;
 	font-family: 'Anton', sans-serif;
 	line-height: 1.2;
-	font-weight: bold;
+	font-weight: 400;
 }
 
 h3 {

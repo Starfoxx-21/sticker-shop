@@ -2,6 +2,8 @@
 	import witchStickers from '$assets/witch_stickers.png';
 	import pixelStickers from '$assets/pixel_stickers.png';
 	import Button from './Button.svelte';
+
+	let { children } = $props();
 </script>
 
 <section class="hero">
@@ -13,13 +15,22 @@
 		<img class="pixel-stickers" src={pixelStickers} alt="pixel stickers" />
 	</div>
 	<div class="hero-text white text-center">
-		<h2>Magical, pixel-perfect creations</h2>
-		<h2 class="mb-m">for the modern mystic.</h2>
-		<p class="light-grey mb-l">
-			Spellbinding designs made to enchant. Unleash your inner magic! Stick, decorate, and add a
-			little magic to your world!
-		</p>
-		<Button>Purchase stickers for 10$</Button>
+		{#if children}
+			{@render children()}
+		{:else}
+			<h2>Magical, pixel-perfect creations</h2>
+			<h2 class="mb-m">for the modern mystic.</h2>
+			<p class="light-grey mb-l">
+				Spellbinding designs made to enchant. Unleash your inner magic! Stick, decorate, and add a
+				little magic to your world!
+			</p>
+			<div class="button-container">
+				<Button productId="pixel">Purchase <span class="pixel">pixel</span> stickers for 10$</Button
+				>
+				<Button productId="witch">Purchase <span class="witch">witch</span> stickers for 15$</Button
+				>
+			</div>
+		{/if}
 	</div>
 </section>
 
@@ -57,5 +68,23 @@
 		bottom: 0;
 		right: 52%;
 		transform: translateY(25%);
+	}
+
+	.button-container {
+		display: flex;
+		flex-direction: column;
+		max-width: max-content;
+		margin: auto;
+		gap: 30px;
+	}
+
+	.pixel {
+		color: aqua;
+		text-shadow: 1px 1px 1px gray;
+	}
+
+	.witch {
+		color: rebeccapurple;
+		text-shadow: 1px 1px 1px gray;
 	}
 </style>
