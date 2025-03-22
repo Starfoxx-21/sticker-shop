@@ -8,8 +8,10 @@
 
 <section class="hero">
 	<div class="hero-showcase text-center bold">
-		<h1 class="purple">Enchant Your World,</h1>
-		<h1 class="purple mb-xs">One Pixel at a Time!</h1>
+		<h1 class="purple mb-s">
+			Enchant Your World, <br />
+			<span class="purple mb-xs">One Pixel at a Time!</span>
+		</h1>
 		<h4 class="italic semi-bold">Whimsical pixels and witchy charm—stick it, spell it, love it!</h4>
 		<img class="witch-stickers" src={witchStickers} alt="witch tickers" />
 		<img class="pixel-stickers" src={pixelStickers} alt="pixel stickers" />

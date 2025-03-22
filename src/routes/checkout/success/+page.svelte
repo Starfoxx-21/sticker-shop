@@ -3,8 +3,10 @@
 </script>
 
 <HeroSection>
-	<h1>Thank you for</h1>
-	<h1 class="mb-l">purchasing</h1>
+	<h1 class="mb-l">
+		Thank you for <br />
+		<span>purchasing</span>
+	</h1>
 	<p class="light-grey mb-l">
 		Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet fuga consequuntur totam
 		ratione fugit facere rerum consequatur dolores illo quae doloribus autem, quo recusandae cumque
@@ -19,4 +21,5 @@
 		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas distinctio aliquid, quibusdam
 		adipisci velit harum.
 	</p>
+	<a href="/">Home</a>
 </HeroSection>
