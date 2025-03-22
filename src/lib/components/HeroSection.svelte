@@ -46,12 +46,12 @@
 	.hero-showcase {
 		position: relative;
 		width: 50%;
-		padding: 100px 16px 0 16px;
+		padding: 80px 16px 0 16px;
 		background: linear-gradient(135deg, #e2cbff, #e2cbff 25%, #deeaff 50%, #ece5ff 75%, #927bce);
 	}
 
 	.hero-text {
-		padding: 100px 5%;
+		padding: 80px 5%;
 		width: 50%;
 		background-color: black;
 	}
