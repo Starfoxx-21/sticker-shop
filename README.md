@@ -36,3 +36,10 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+##Stripe Card
+
+Card number: 4242 4242 4242 4242
+Any valid future date
+Any three-digit CVC (four digits for American Express cards)
+Any value for other form fields.
