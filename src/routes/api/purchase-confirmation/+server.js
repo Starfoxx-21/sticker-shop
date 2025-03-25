@@ -24,7 +24,7 @@ export async function POST({ request }) {
 		const customerName = checkoutSession.customer_details.name;
 		const productId = checkoutSession.metadata.productId;
 
-		const pdfPath = path.resolve('static', 'pdfs', `${productId}_stickers.pdf`);
+		const pdfPath = `static/pdfs/${productId}_stickers.pdf`;
 		const pdfBuffer = await read(pdfPath);
 		const pdfBase64 = pdfBuffer.toString('base64');
 
