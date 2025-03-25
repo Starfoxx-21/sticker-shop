@@ -3,6 +3,7 @@ import { SENDGRID_API_KEY, STRIPE_API_KEY, STRIPE_WEBHOOK_SECRET } from '$env/st
 import fs from 'fs';
 import sgMail from '@sendgrid/mail';
 import path from 'path';
+import Stripe from 'stripe';
 
 const stripe = new Stripe(STRIPE_API_KEY);
 
