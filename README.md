@@ -39,7 +39,7 @@ You can preview the production build with `npm run preview`.
 
 ## Stripe Card
 
-Card number: 4242 4242 4242 4242
-Any valid future date
-Any three-digit CVC (four digits for American Express cards)
-Any value for other form fields.
+- **Card number:** `4242 4242 4242 4242`
+- **Expiration date:** Any valid future date  
+- **CVC:** Any three-digit code (four digits for American Express)  
+- **Other fields:** Any value  
