@@ -4,10 +4,17 @@ import { read } from '$app/server';
 import sgMail from '@sendgrid/mail';
 import path from 'path';
 import Stripe from 'stripe';
+import pixel_stickers from '../../../pdfs/pixel_stickers.pdf';
+import witch_stickers from '../../../pdfs/witch_stickers.pdf';
 
 const stripe = new Stripe(STRIPE_API_KEY);
 
 sgMail.setApiKey(SENDGRID_API_KEY);
+
+const pdfs = {
+	"pixel": pixel_stickers,
+	"witch": witch_stickers
+}
 
 export async function POST({ request }) {
 	const body = await request.text();
@@ -23,10 +30,9 @@ export async function POST({ request }) {
 		const customerEmail = checkoutSession.customer_details.email;
 		const customerName = checkoutSession.customer_details.name;
 		const productId = checkoutSession.metadata.productId;
-
-		const pdfPath = `pdfs/${productId}_stickers.pdf`;
-		const pdfBuffer = await read(pdfPath);
-		const pdfBase64 = pdfBuffer.toString('base64');
+		
+		const pdfBuffer = await read(pdfs[productId]).arrayBuffer();
+		const pdfBase64 = Buffer.from(pdfBuffer).toString('base64');
 
 		const message = {
 			to: customerEmail,
@@ -56,6 +62,8 @@ export async function POST({ request }) {
 		try {
 			await sgMail.send(message);
 
+			console.log('Email sent successfully');
+
 			return json({ message: 'Email sent successfully' });
 		} catch (error) {
 			console.error('Error sending email:', error);
@@ -65,7 +73,6 @@ export async function POST({ request }) {
 			throw new Error('Failed to send email');
 		}
 	} catch (error) {
-		console.error('⚠️ Webhook signature verification failed.', error.message);
 		console.error('Error occurred:', error.message);
 		return json({ error: error.message }, { status: 500 });
 	}
