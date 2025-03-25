@@ -30,7 +30,10 @@ export async function POST(event) {
 			],
 			mode: 'payment',
 			success_url: `${PUBLIC_FRONTEND_URL}/checkout/success`,
-			cancel_url: `${PUBLIC_FRONTEND_URL}/checkout/failure`
+			cancel_url: `${PUBLIC_FRONTEND_URL}/checkout/failure`,
+			metadata: {
+				productId: productId
+			  }
 		});
 
 		return json({ sessionId: session.id });
