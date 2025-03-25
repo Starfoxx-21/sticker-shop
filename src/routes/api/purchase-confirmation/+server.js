@@ -1,6 +1,6 @@
 import { json } from '@sveltejs/kit';
 import { SENDGRID_API_KEY, STRIPE_API_KEY, STRIPE_WEBHOOK_SECRET } from '$env/static/private';
-import fs from 'fs';
+import { read } from '$app/server';
 import sgMail from '@sendgrid/mail';
 import path from 'path';
 import Stripe from 'stripe';
@@ -25,7 +25,7 @@ export async function POST({ request }) {
 		const productId = checkoutSession.metadata.productId;
 
 		const pdfPath = path.resolve('static', 'pdfs', `${productId}_stickers.pdf`);
-		const pdfBuffer = fs.readFileSync(pdfPath);
+		const pdfBuffer = await read(pdfPath);
 		const pdfBase64 = pdfBuffer.toString('base64');
 
 		const message = {
