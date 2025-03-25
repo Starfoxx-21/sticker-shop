@@ -13,10 +13,10 @@ export async function POST({ request }) {
 	const body = await request.text();
 	const signature = request.headers.get('stripe-signature') || '';
 
-	try {
-		const stripeEvent = stripe.webhooks.constructEvent(body, signature, STRIPE_WEBHOOK_SECRET);
+	let stripeEvent;
 
-		// const requestBody = await request.json();
+	try {
+		stripeEvent = stripe.webhooks.constructEvent(body, signature, STRIPE_WEBHOOK_SECRET);
 
 		const checkoutSession = stripeEvent.data.object;
 
@@ -24,18 +24,9 @@ export async function POST({ request }) {
 		const customerName = checkoutSession.customer_details.name;
 		const productId = checkoutSession.metadata.productId;
 
-		console.log('Received requestBody:', requestBody);
-		console.log(
-			'Resolved PDF path:',
-			`D:/vs/training/svelteKit/stickerShop/static/pdfs/${productId}_stickers.pdf`
-		);
-		console.log('Product ID:', productId);
-
 		const pdfPath = path.resolve('static', 'pdfs', `${productId}_stickers.pdf`);
 		const pdfBuffer = fs.readFileSync(pdfPath);
 		const pdfBase64 = pdfBuffer.toString('base64');
-
-		console.log('Resolved PDF path:', pdfPath);
 
 		const message = {
 			to: customerEmail,
@@ -64,8 +55,6 @@ export async function POST({ request }) {
 
 		try {
 			await sgMail.send(message);
-			console.log('Sending email to:', customerEmail);
-			console.log('Email sent successfully');
 
 			return json({ message: 'Email sent successfully' });
 		} catch (error) {
@@ -76,7 +65,8 @@ export async function POST({ request }) {
 			throw new Error('Failed to send email');
 		}
 	} catch (error) {
-		console.error('Webhook signature verification failed:', err);
-		return json({ error: 'Webhook signature verification failed' }, { status: 400 });
+		console.error('⚠️ Webhook signature verification failed.', error.message);
+		console.error('Error occurred:', error.message);
+		return json({ error: error.message }, { status: 500 });
 	}
 }
