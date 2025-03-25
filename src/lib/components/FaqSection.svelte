@@ -60,6 +60,15 @@
 </section>
 
 <style>
+	a {
+		background-color: transparent;
+		color: black;
+		text-transform: none;
+		&:hover {
+			color: dimgrey;
+		}
+	}
+
 	.github-icon {
 		height: 28px;
 		width: 28px;
