@@ -12,7 +12,7 @@
 			Enchant Your World, <br />
 			<span class="purple mb-xs">One Pixel at a Time!</span>
 		</h1>
-		<h4 class="italic semi-bold">Whimsical pixels and witchy charm—stick it, spell it, love it!</h4>
+		<h3 class="italic semi-bold">Whimsical pixels and witchy charm—stick it, spell it, love it!</h3>
 		<img class="witch-stickers" src={witchStickers} alt="witch tickers" />
 		<img class="pixel-stickers" src={pixelStickers} alt="pixel stickers" />
 	</div>
@@ -20,8 +20,9 @@
 		{#if children}
 			{@render children()}
 		{:else}
-			<h2>Magical, pixel-perfect creations</h2>
-			<h2 class="mb-m">for the modern mystic.</h2>
+			<h2>Magical, pixel-perfect creations
+				<span class="mb-m">for the modern mystic.</span>
+			</h2>
 			<p class="light-grey mb-l">
 				Spellbinding designs made to enchant. Unleash your inner magic! Stick, decorate, and add a
 				little magic to your world!
